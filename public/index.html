@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SoundFlow - YouTube to MP3</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/styles.css" />
+</head>
+<body>
+  <div class="page-shell">
+    <div class="ambient ambient-one"></div>
+    <div class="ambient ambient-two"></div>
+
+    <main class="app-layout">
+      <section class="hero-section" aria-labelledby="heroTitle">
+        <div class="brand-pill">
+          <span class="brand-mark" aria-hidden="true"></span>
+          <span>SoundFlow</span>
+        </div>
+
+        <div class="hero-copy">
+          <p class="eyebrow">Studio-grade YouTube audio trims</p>
+          <h1 id="heroTitle">Turn any video into a clean MP3 moment.</h1>
+          <p class="hero-subtitle">
+            Paste a link, choose the exact section, and download a polished MP3 with one smooth flow.
+          </p>
+        </div>
+
+        <div class="hero-stats" aria-label="SoundFlow highlights">
+          <div>
+            <strong>MP3</strong>
+            <span>Export</span>
+          </div>
+          <div>
+            <strong>Trim</strong>
+            <span>Precise</span>
+          </div>
+          <div>
+            <strong>320</strong>
+            <span>kbps max</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="converter-card" aria-label="SoundFlow converter">
+        <div class="card-header">
+          <div>
+            <p class="section-kicker">Create MP3</p>
+            <h2>Download audio</h2>
+          </div>
+          <div class="live-badge">
+            <span></span>
+            Ready
+          </div>
+        </div>
+
+        <div class="form-stack">
+          <div class="field-group url-field">
+            <label for="urlInput">YouTube URL</label>
+            <div class="input-wrap">
+              <input
+                id="urlInput"
+                type="url"
+                placeholder="https://www.youtube.com/watch?v=..."
+                autocomplete="off"
+              />
+            </div>
+          </div>
+
+          <div class="trim-row">
+            <div class="field-group">
+              <label for="startTime">Start Time</label>
+              <div class="input-wrap compact">
+                <input id="startTime" type="number" min="0" value="0" placeholder="0" />
+                <span>sec</span>
+              </div>
+            </div>
+
+            <div class="field-group">
+              <label for="endTime">End Time</label>
+              <div class="input-wrap compact">
+                <input id="endTime" type="number" min="1" placeholder="optional" />
+                <span>sec</span>
+              </div>
+            </div>
+
+            <div class="field-group">
+              <label for="bitrate">Bitrate</label>
+              <div class="select-wrap">
+                <select id="bitrate">
+                  <option value="128">128 kbps</option>
+                  <option value="192" selected>192 kbps</option>
+                  <option value="256">256 kbps</option>
+                  <option value="320">320 kbps</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <button id="downloadBtn" class="download-button" type="button">
+            <span class="button-glow" aria-hidden="true"></span>
+            <span class="button-spinner" aria-hidden="true"></span>
+            <span class="button-label">Download MP3</span>
+          </button>
+
+          <div id="status" class="status hidden" role="status" aria-live="polite"></div>
+        </div>
+
+        <div id="videoInfo" class="video-preview" style="display: none;">
+          <div class="thumbnail-frame">
+            <img id="videoThumbnail" src="" alt="Thumbnail video" />
+          </div>
+          <div class="video-copy">
+            <p id="videoTitle"></p>
+            <p id="videoUploader"></p>
+            <p id="videoDuration"></p>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <div id="toastContainer" class="toast-container" aria-live="polite" aria-atomic="true"></div>
+
+  <script src="/js/main.js"></script>
+</body>
+</html>
